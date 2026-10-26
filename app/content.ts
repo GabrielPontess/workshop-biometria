@@ -21,8 +21,8 @@ export const workshop = {
     photoUrl: "/imgs/pontes.jpg",
   },
   organizers: [
-    { name: "Opal Bytes", logoUrl: null as string | null },
-    { name: "Renova", logoUrl: null as string | null },
+    { name: "Opal Bytes", logoUrl: "/imgs/opal-bytes-logo.png" },
+    { name: "Renova", logoUrl: "/imgs/renova-logo.png" },
   ],
 };
 

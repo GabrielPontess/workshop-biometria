@@ -258,13 +258,14 @@ h1 { color: var(--accent-ink); font-size: clamp(56px, 7.65vw, 106px); font-weigh
 .footer-title svg { width: 16px; height: 16px; color: var(--accent-ink); transform: rotate(-45deg); }
 .footer-title:hover { color: var(--accent-ink); }
 .footer-main p { color: var(--muted); font-size: 11px; margin-top: 10px; }
-.organizer-marks { display: flex; align-items: center; gap: 28px; }
-.organizer + .organizer { border-left: 1px solid var(--line-strong); padding-left: 28px; }
+.organizer-marks { display: flex; align-items: center; padding: 16px 22px; border: 1px solid #ffffff20; border-radius: 12px; background: #111416; }
+.organizer { min-width: 0; padding-right: 24px; }
+.organizer + .organizer { border-left: 1px solid #ffffff26; padding-right: 0; padding-left: 24px; }
 .organizer-placeholder { display: flex; align-items: center; gap: 9px; color: var(--foreground); }
 .organizer-placeholder > svg { width: 24px; height: 24px; color: var(--subtle); }
 .organizer-placeholder > span { font-size: 17px; font-weight: 600; letter-spacing: -.5px; }
 .organizer-placeholder small { display: block; margin-top: 4px; font: 6px var(--font-geist-mono), monospace; letter-spacing: 1px; color: var(--subtle); }
-.organizer-logo { width: 136px; height: 44px; object-fit: contain; }
+.organizer-logo { display: block; width: 136px; max-width: 100%; height: 80px; object-fit: contain; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 22px; border-top: 1px solid var(--line); font-size: 8px; color: var(--subtle); }
 .footer-bottom a { color: var(--muted); }
 .footer-bottom a:hover { color: var(--accent-ink); }
@@ -422,8 +423,10 @@ h1 { color: var(--accent-ink); font-size: clamp(56px, 7.65vw, 106px); font-weigh
   .closing-note { font-size: 9px; }
   .footer-main { align-items: start; flex-direction: column; gap: 30px; padding-block: 32px; }
   .footer-title { font-size: 17px; }
-  .organizer-marks { gap: 25px; }
-  .organizer + .organizer { padding-left: 25px; }
+  .organizer-marks { width: 100%; justify-content: center; padding: 14px 16px; }
+  .organizer { flex: 1; padding-right: 16px; }
+  .organizer + .organizer { padding-right: 0; padding-left: 16px; }
+  .organizer-logo { margin-inline: auto; }
   .footer-bottom { flex-wrap: wrap; gap: 15px; font-size: 8px; }
   .footer-bottom > span:nth-child(2) { order: 3; flex-basis: 100%; font-size: 7px; }
   .footer-bottom > a { margin-left: auto; }

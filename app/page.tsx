@@ -24,11 +24,11 @@ function RegistrationButton({ compact = false }: { compact?: boolean }) {
 
 function OrganizerMarks({ footer = false }: { footer?: boolean }) {
   return (
-    <div className={`organizer-marks${footer ? " organizer-marks-footer" : ""}`} aria-label="Organização">
+    <div className={`organizer-marks${footer ? " organizer-marks-footer" : ""}`} role="group" aria-label="Organização">
       {workshop.organizers.map((organizer) => (
         <div className="organizer" key={organizer.name}>
           {organizer.logoUrl ? (
-            <Image src={publicPath(organizer.logoUrl)} alt={organizer.name} width={136} height={44} className="organizer-logo" />
+            <Image src={publicPath(organizer.logoUrl)} alt={organizer.name} width={136} height={80} className="organizer-logo" />
           ) : (
             <span className="organizer-placeholder">
               <Icon name="layers" />
