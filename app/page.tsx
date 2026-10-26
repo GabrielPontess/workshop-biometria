@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { questions, syllabus, workshop } from "./content";
 import { Icon } from "./icons";
+import { ThemeToggle } from "./theme-toggle";
+import { publicPath } from "./public-path";
 
 function RegistrationButton({ compact = false }: { compact?: boolean }) {
   const className = `button button-primary${compact ? " button-compact" : ""}`;
@@ -26,7 +28,7 @@ function OrganizerMarks({ footer = false }: { footer?: boolean }) {
       {workshop.organizers.map((organizer) => (
         <div className="organizer" key={organizer.name}>
           {organizer.logoUrl ? (
-            <Image src={organizer.logoUrl} alt={organizer.name} width={136} height={44} className="organizer-logo" />
+            <Image src={publicPath(organizer.logoUrl)} alt={organizer.name} width={136} height={44} className="organizer-logo" />
           ) : (
             <span className="organizer-placeholder">
               <Icon name="layers" />
@@ -86,7 +88,7 @@ export default function Home() {
           <nav aria-label="Navegação principal">
             <a href="#sobre">O encontro</a><a href="#ementa">Ementa</a><a href="#palestrante">Palestrante</a><a href="#duvidas">Dúvidas</a>
           </nav>
-          <div className="header-cta"><RegistrationButton compact /></div>
+          <div className="header-actions"><ThemeToggle /><div className="header-cta"><RegistrationButton compact /></div></div>
         </div>
       </header>
 
@@ -101,7 +103,7 @@ export default function Home() {
                 <p className="hero-description">{workshop.subtitle} Um convite para explorar o que está por trás de cada identificação.</p>
                 <div className="hero-actions">
                   <RegistrationButton />
-                  <a className="button button-secondary" href={workshop.invitationUrl} target="_blank" rel="noopener noreferrer" aria-label="Visualizar convite (abre em nova aba)">Visualizar convite <Icon name="external" /></a>
+                  <a className="button button-secondary" href={publicPath(workshop.invitationUrl)} target="_blank" rel="noopener noreferrer" aria-label="Visualizar convite (abre em nova aba)">Visualizar convite <Icon name="external" /></a>
                   <a className="button button-text" href="#ementa">Conheça a ementa <Icon name="arrow" /></a>
                 </div>
                 <p className="participation-note"><Icon name="user" /> Para todos os colaboradores. Participação opcional.</p>
@@ -154,7 +156,7 @@ export default function Home() {
         <section className="speaker-section section-spacing section-anchor" id="palestrante" aria-labelledby="speaker-title">
           <div className="container speaker-grid">
             <div className={`speaker-portrait${workshop.speaker.photoUrl ? " speaker-portrait-photo" : ""}`}>
-              {workshop.speaker.photoUrl ? <Image src={workshop.speaker.photoUrl} alt={`Foto de ${workshop.speaker.name}`} fill sizes="(max-width: 760px) 100vw, 380px" className="speaker-photo" /> : <><div className="portrait-orbit" /><span className="portrait-initials" aria-hidden="true">GP<span>+</span></span><span className="portrait-placeholder"><Icon name="user" /> Espaço para foto do palestrante</span></>}
+              {workshop.speaker.photoUrl ? <Image src={publicPath(workshop.speaker.photoUrl)} alt={`Foto de ${workshop.speaker.name}`} fill sizes="(max-width: 760px) 100vw, 380px" className="speaker-photo" /> : <><div className="portrait-orbit" /><span className="portrait-initials" aria-hidden="true">GP<span>+</span></span><span className="portrait-placeholder"><Icon name="user" /> Espaço para foto do palestrante</span></>}
               <span className="portrait-label">CONHECIMENTO QUE CONECTA</span>
             </div>
             <div className="speaker-content">

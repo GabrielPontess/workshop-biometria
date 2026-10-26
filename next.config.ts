@@ -1,12 +1,23 @@
 import type { NextConfig } from "next";
+import { basePath } from "./app/public-path";
+
+const isStaticExport = process.env.STATIC_EXPORT === "true";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath,
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  ...(isStaticExport
+    ? {
+        output: "export",
+        trailingSlash: true,
+        images: { unoptimized: true },
+      }
+    : {
+        cacheComponents: true,
+        partialPrefetching: true,
+      }),
   turbopack: {
     rules: {
       "*.css": {
