@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { Icon } from "./icons";
 import { THEME_STORAGE_KEY } from "./theme";
+import type { Dictionary } from "./i18n/pt-BR";
 
 type Theme = "dark" | "light";
 const THEME_EVENT = "workshop-theme-change";
@@ -41,16 +42,16 @@ function setTheme(theme: Theme) {
   }
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ labels }: { labels: Dictionary["theme"] }) {
   const theme = useSyncExternalStore(subscribe, getTheme, getServerTheme);
 
   return (
-    <div className="theme-toggle" role="group" aria-label="Tema da página">
-      <button type="button" aria-label="Usar tema claro" aria-pressed={theme === "light"} title="Tema claro" onClick={() => setTheme("light")}>
-        <Icon name="sun" /><span>Claro</span>
+    <div className="theme-toggle" role="group" aria-label={labels.group}>
+      <button type="button" aria-label={labels.useLight} aria-pressed={theme === "light"} title={labels.light} onClick={() => setTheme("light")}>
+        <Icon name="sun" /><span>{labels.light}</span>
       </button>
-      <button type="button" aria-label="Usar tema escuro" aria-pressed={theme === "dark"} title="Tema escuro" onClick={() => setTheme("dark")}>
-        <Icon name="moon" /><span>Escuro</span>
+      <button type="button" aria-label={labels.useDark} aria-pressed={theme === "dark"} title={labels.dark} onClick={() => setTheme("dark")}>
+        <Icon name="moon" /><span>{labels.dark}</span>
       </button>
     </div>
   );

@@ -9,6 +9,7 @@ export const workshop = {
   time: "15h",
   timezone: "Horário de Brasília",
   duration: "50 minutos",
+  durationMinutes: 50,
   platform: "Microsoft Teams",
   // URL do formulário externo. Use null para exibir “Inscrições em breve”.
   registrationUrl: "https://forms.gle/oYcYiBHmEY4WjadW9" as string | null,
